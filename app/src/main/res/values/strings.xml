@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">StarWarsExercise</string>
+    <string name="try_again">Try again</string>
+    <string name="cancel">Cancel</string>
+    <string name="network_request_failed_message">Unable to contact the server, please try again</string>
+    <string name="name">Name</string>
+    <string name="height_meters">Height (meters)</string>
+    <string name="date_created">Date created</string>
+    <string name="mass_kg">Mass</string>
 </resources>

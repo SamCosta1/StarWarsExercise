@@ -26,6 +26,9 @@ class ApiController {
     private fun buildRetrofit(): Retrofit
             = Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
+
+            // This would often be defined using product flavours in the build.gradle file to allow different configs
+            // hardcoding it now for simplicty since this is an exercise
             .baseUrl("https://swapi.co/api/")
             .build()
 
