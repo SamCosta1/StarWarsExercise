@@ -9,7 +9,7 @@ import retrofit2.Response
  *
  *
  * Disclaimer: I have not written this file from scratch for this exercise, it's modified from a version
- * I've used on another Kotlin project
+ * I've written for another Kotlin project
  */
 
 typealias ApiCallCompletion<T> = (ApiResponse<T>) -> Unit
@@ -27,7 +27,7 @@ private fun parseError(response: Response<*>?): CallFailure.ApiError? {
 fun <T>Call<T>.enqueue(completion: ApiCallCompletion<T>) {
     this.enqueue(object : Callback<T> {
         override fun onFailure(call: Call<T>?, t: Throwable?) {
-            completion(ApiResponse.failure<T>(t))
+            completion(ApiResponse.failure(t))
         }
 
         override fun onResponse(call: Call<T>?, response: Response<T>?) {

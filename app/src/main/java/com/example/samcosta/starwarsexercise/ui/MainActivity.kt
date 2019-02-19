@@ -12,9 +12,6 @@ import com.example.samcosta.starwarsexercise.engine.model.StarWarsCharacter
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        private const val REQUEST_SUCCESS_KEY = "request_success_key"
-    }
     private lateinit var charactersRecyclerView: RecyclerView
     private lateinit var loader: ProgressBar
     private lateinit var tryAgain: View
@@ -36,13 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         setupRecyclerView()
         retrieveCharacters()
-
-        if (savedInstanceState != null) {
-            requestSuccessful = savedInstanceState.getBoolean(REQUEST_SUCCESS_KEY)
-            tryAgain.visibility = if (requestSuccessful) View.VISIBLE else View.GONE
-        }
     }
-
 
     private fun retrieveCharacters() {
         loader.visibility = View.VISIBLE
@@ -67,12 +58,6 @@ class MainActivity : AppCompatActivity() {
     private fun showError() {
         tryAgain.visibility = View.VISIBLE
         RequestFailedDialogFragment().show(fragmentManager, RequestFailedDialogFragment.TAG)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
-
-        outState?.putBoolean(REQUEST_SUCCESS_KEY, requestSuccessful)
     }
 
     private fun onCharacterClicked(character: StarWarsCharacter) {
